@@ -1,0 +1,21 @@
+/**
+ * 使用BotAPI发送文本消息给个人或群组
+ * 
+ * @return boolean
+ */
+public function send()
+{
+    $token = '你机器人的token';
+    $chat_id = '个人ID或群组ID';
+    $message = '不用上班的程序员';
+    try {
+        $bot = new \TelegramBot\Api\BotApi($token);
+        $m = $bot->sendMessage($chat_id, $message);
+        if ($m instanceof \TelegramBot\Api\Types\Message) {
+            return true;
+        }
+        return true;
+    } catch (\Exception $e) {
+        return false;
+    }
+}
